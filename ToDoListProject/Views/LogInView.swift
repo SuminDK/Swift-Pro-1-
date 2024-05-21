@@ -9,37 +9,41 @@ import SwiftUI
 
 struct LogInView: View {
     
-    @State var email = ""
-    @State var password = ""
-    
+    // ****
+   @StateObject var viewModel = LogInViewVM()
 
     var body: some View {
         NavigationView {
             VStack {
+                
                 // Header
-                HeaderView()
+                HeaderView(title: "Taskly", subtitle: "Get Things Done!", angle: 15, background: .orange)
                 
                 // Login Form
                 Form{
-                    TextField("Email", text: $email)
+                    
+                    // Error message
+                    if !viewModel.errorMessage.isEmpty{
+                        Text(viewModel.errorMessage)
+                            .foregroundColor(.red)
+                    }
+                    
+                    TextField("Email", text: $viewModel.email)
                         .textFieldStyle(DefaultTextFieldStyle())
-                    SecureField("Password", text: $password)
+                        .autocapitalization(.none)
+                    SecureField("Password", text: $viewModel.password)
                         .textFieldStyle(DefaultTextFieldStyle())
                     
-                    Button{
-                        //Attempt log in
-                    } label: {
-                        ZStack(content: {
-                            RoundedRectangle(cornerRadius: 40)
-                                .foregroundColor(.orange)
-                            
-                            Text("Log In")
-                                .foregroundColor(.white)
-                                .bold()
-                        })
-                    }
-                    .padding()
+                    TLButton(
+                        
+                        title: "Log In",
+                        background: .orange,
+                        action: {
+                            viewModel.login()
+                    })
+                  
                 }
+                .offset (y:-55)
                 
                 // Create Account
                 VStack(content: {
