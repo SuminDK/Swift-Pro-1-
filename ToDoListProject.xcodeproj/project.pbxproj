@@ -134,10 +134,10 @@
 				F2B736AA2BFB4818006FC977 /* MainViewVM.swift */,
 				F2B736AC2BFB4820006FC977 /* ProfileViewVM.swift */,
 				F2B736AE2BFB482B006FC977 /* ToDoListViewVM.swift */,
+				F2B736B62BFB4851006FC977 /* ToDoListItemViewVM.swift */,
 				F2B736B02BFB4834006FC977 /* NewItemViewVM.swift */,
 				F2B736B22BFB483C006FC977 /* LogInViewVM.swift */,
 				F2B736B42BFB4844006FC977 /* RegisterViewVM.swift */,
-				F2B736B62BFB4851006FC977 /* ToDoListItemViewVM.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
